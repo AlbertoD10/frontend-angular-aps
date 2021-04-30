@@ -1,0 +1,17 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light mb-3 justify-content-between bg-dark"
+>
+  <a class="navbar-brand" [routerLink]="'/admin'">
+    <div>
+      <img src="../../../assets/img/user.png" />
+      <a>{{ user }}</a>
+    </div>
+  </a>
+
+  <button class="btn btn-outline" (click)="logout()">
+    <a>Cerrar sesión </a>
+    <img src="../../../assets/img/logout.png" />
+  </button>
+</nav>
+
+<router-outlet></router-outlet>

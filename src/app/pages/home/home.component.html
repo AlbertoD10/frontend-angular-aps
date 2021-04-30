@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row py-5 mt-30 align-items-center">
+    <div class="left col-md-5 pr-lg-5 mb-5 mb-md-0">
+      <img
+        src="../../../assets/img/login.png"
+        alt=""
+        class="img-fluid mb-3 d-none d-md-block"
+      />
+      <h1>¡Bienvenido(a)</h1>
+      <p class="font-italic text-muted mb-0">
+        Ingrese sesión o cree una cuenta para acceder.
+      </p>
+    </div>
+
+    <!-- Forms -->
+    <div class="cage col-md-7 col-lg-6 ml-auto">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Iniciar sesión</a>
+          <ng-template ngbNavContent>
+            <!-- Use the login component  -->
+            <app-login></app-login>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Registrarse</a>
+          <ng-template ngbNavContent>
+            <app-signup></app-signup>
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+  </div>
+</div>

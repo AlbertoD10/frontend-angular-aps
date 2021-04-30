@@ -1,0 +1,139 @@
+<form
+  class="row g-3 form"
+  (ngSubmit)="signUp(registerForm)"
+  [formGroup]="registerForm"
+>
+  <div class="mb-3 col-md-12 form-group">
+    <label for="username" class="form-label"
+      >Ingrese un nombre de usuario</label
+    >
+    <input
+      name="username"
+      class="form-control"
+      id="username"
+      formControlName="username"
+      required
+      [ngClass]="{
+        'is-invalid': (username?.touched || showValidation) && username?.errors,
+        'is-valid': username?.valid && username?.touched
+      }"
+    />
+    <span
+      class="invalid-feedback"
+      *ngIf="
+        (username?.touched || showValidation) && username?.errors?.required
+      "
+    >
+      Debe ingresar un nombre de usuario.
+      <p>El nombre de usuario debe tener 4 o más caracteres.</p>
+    </span>
+  </div>
+
+  <div class="mb-3 col-md-6 form-group">
+    <label for="name" class="form-label">Ingrese su nombre</label>
+    <input
+      name="name"
+      class="form-control"
+      id="name"
+      formControlName="name"
+      required
+      [ngClass]="{
+        'is-invalid':
+          (name?.touched || showValidation) && name?.errors?.required,
+        'is-valid': name?.valid && name?.touched
+      }"
+    />
+    <span
+      class="invalid-feedback"
+      *ngIf="(name?.touched || showValidation) && name?.errors?.required"
+    >
+      Debe ingresar su nombre.
+    </span>
+  </div>
+
+  <div class="mb-3 col-md-6 form-group">
+    <label for="lastname" class="form-label">Ingrese su apellido</label>
+    <input
+      name="lastname"
+      class="form-control"
+      id="lastname"
+      formControlName="lastname"
+      required
+      [ngClass]="{
+        'is-invalid':
+          (lastname?.touched || showValidation) && lastname?.errors?.required,
+        'is-valid': lastname?.valid && lastname?.touched
+      }"
+    />
+    <span
+      class="invalid-feedback"
+      *ngIf="
+        (lastname?.touched || showValidation) && lastname?.errors?.required
+      "
+    >
+      Debe ingresar su apellido.
+    </span>
+  </div>
+
+  <div class="mb-3 col-md-12 form-group">
+    <label for="password" class="form-label">Ingrese una contraseña</label>
+    <input
+      name="password"
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+      required
+      [ngClass]="{
+        'is-invalid':
+          (password?.touched || showValidation) && password?.errors?.required,
+        'is-valid': password?.valid && password?.touched
+      }"
+    />
+    <span
+      class="invalid-feedback"
+      *ngIf="
+        (password?.touched || showValidation) && password?.errors?.required
+      "
+    >
+      Debe ingresar una contraseña.
+      <p>Mínimo 5 caracteres.</p>
+    </span>
+  </div>
+
+  <div class="mb-3 col-md-12 form-group">
+    <label for="repeatpassword" class="form-label">Repita la contraseña</label>
+    <input
+      name="repeatpassword"
+      type="password"
+      class="form-control"
+      id="repeatpassword"
+      formControlName="repeatpassword"
+      required
+      [ngClass]="{
+        'is-invalid':
+          ((repeatpassword?.touched || showValidation) &&
+            repeatpassword?.errors?.required) ||
+          repeatpassword?.errors?.mustMatch,
+        'is-valid': repeatpassword?.valid && repeatpassword?.touched
+      }"
+    />
+    <span
+      class="invalid-feedback"
+      *ngIf="
+        (repeatpassword?.touched || showValidation) &&
+        repeatpassword?.errors?.required
+      "
+    >
+      Debe repetir la contraseña.
+    </span>
+    <span class="invalid-feedback" *ngIf="repeatpassword?.errors?.mustMatch">
+      Las contraseñas no coinciden.
+    </span>
+  </div>
+  <div class="mb-3 col-md-12">
+    <button class="btn btn-secondary btn-block" type="submit">
+      Crear cuenta
+    </button>
+  </div>
+</form>

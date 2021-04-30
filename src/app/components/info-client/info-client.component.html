@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-img mx-auto">
+    <img
+      class="img-circle"
+      src="../../../assets/img/profile.svg"
+      alt="Card image cap"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title text-center text-secondary">
+      Nº Cliente: {{ client.CLIENTNUM }}
+    </h5>
+    <h6 class="text-secondary">Edad: {{ client.Customer_Age }}</h6>
+    <h6 class="text-secondary">Tipo de tarjeta: {{ client.Card_Category }}</h6>
+    <h6 class="text-secondary">
+      Nivel educativo: {{ client.Education_Level }}
+    </h6>
+    <h6 class="text-secondary">
+      Ingreso salarial: {{ client.Income_Category }}
+    </h6>
+    <h6 class="text-secondary">Estado civil: {{ client.Marital_Status }}</h6>
+
+    <div class="mt-3">
+      <button href="#" class="btn btn-secondary btn-block">
+        Generar análisis
+      </button>
+      <button routerLink="/admin" class="btn btn-secondary btn-block">
+        Buscar nuevo cliente
+      </button>
+    </div>
+  </div>
+</div>

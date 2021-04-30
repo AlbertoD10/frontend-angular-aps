@@ -1,0 +1,47 @@
+<div class="container">
+  <h1 class="text-center mt-5 mb-5 text-muted">
+    Ingrese el número del cliente
+  </h1>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 form-group">
+      <form
+        class="card card-sm form"
+        [formGroup]="searchForm"
+        (ngSubmit)="getClient()"
+      >
+        <div class="card-body row no-gutters align-items-center">
+          <div class="col-auto">
+            <i class="fas fa-search h4 text-body"></i>
+          </div>
+          <div class="col">
+            <input
+              name="id"
+              autofocus
+              class="form-control form-control-lg form-control-borderless"
+              type="search"
+              placeholder="Número"
+              formControlName="id"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  (id?.touched || showValidation) && id?.errors?.required,
+                'is-valid': id?.valid && id?.touched
+              }"
+            />
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-lg btn-secondary" type="submit">
+              Buscar
+            </button>
+          </div>
+        </div>
+      </form>
+      <h6
+        class="text-center text-danger"
+        *ngIf="(id?.touched || showValidation) && id?.errors?.required"
+      >
+        Ingrese el número del cliente
+      </h6>
+    </div>
+  </div>
+</div>

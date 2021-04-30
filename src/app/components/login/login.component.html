@@ -1,0 +1,56 @@
+<form class="form" [formGroup]="userForm" (ngSubmit)="login()">
+  <div class="mb-3 form-group">
+    <label for="username" class="form-label">Nombre de usuario</label>
+    <input
+      name="username"
+      class="form-control"
+      id="username"
+      formControlName="username"
+      required
+      [ngClass]="{
+        'is-invalid':
+          (username?.touched || showValidation) && username?.errors?.required,
+        'is-valid': username?.valid && username?.touched
+      }"
+    />
+    <span
+      class="invalid-feedback"
+      *ngIf="
+        (username?.touched || showValidation) && username?.errors?.required
+      "
+    >
+      Ingrese su nombre de usuario.
+    </span>
+
+    <p class="font-italic text-muted mb-0">
+      (El nombre de usuario utilizado al crear la cuenta)
+    </p>
+  </div>
+
+  <div class="mb-3 form-group">
+    <label for="password" class="form-label">Contraseña</label>
+    <input
+      name="password"
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+      required
+      [ngClass]="{
+        'is-invalid':
+          (password?.touched || showValidation) && password?.errors?.required,
+        'is-valid': password?.valid && password?.touched
+      }"
+    />
+    <span
+      class="invalid-feedback"
+      *ngIf="
+        (password?.touched || showValidation) && password?.errors?.required
+      "
+    >
+      Ingrese su contraseña.
+    </span>
+  </div>
+
+  <button class="btn btn-secondary btn-block" type="submit">Ingresar</button>
+</form>
