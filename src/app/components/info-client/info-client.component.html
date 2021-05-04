@@ -11,6 +11,7 @@
       Nº Cliente: {{ client.CLIENTNUM }}
     </h5>
     <h6 class="text-secondary">Edad: {{ client.Customer_Age }}</h6>
+    <h6 class="text-secondary">Genero: {{ client.Gender }}</h6>
     <h6 class="text-secondary">Tipo de tarjeta: {{ client.Card_Category }}</h6>
     <h6 class="text-secondary">
       Nivel educativo: {{ client.Education_Level }}
@@ -21,7 +22,7 @@
     <h6 class="text-secondary">Estado civil: {{ client.Marital_Status }}</h6>
 
     <div class="mt-3">
-      <button href="#" class="btn btn-secondary btn-block">
+      <button href="#" class="btn btn-secondary btn-block" (click)="kmeans()">
         Generar análisis
       </button>
       <button routerLink="/admin" class="btn btn-secondary btn-block">
@@ -30,3 +31,4 @@
     </div>
   </div>
 </div>
+<ngx-spinner></ngx-spinner>

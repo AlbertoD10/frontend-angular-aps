@@ -21,6 +21,7 @@ export class AuthService {
     return this.http.post<any>(this.url + '/login', user);
   }
 
+  //To verify if the user is logged
   isLogged() {
     const accessToken = this.getAcessToken();
 
@@ -53,6 +54,7 @@ export class AuthService {
     this.router.navigate(['']);
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
+    localStorage.removeItem('client');
   }
 
   checkRefreshToken(refreshToken: any) {

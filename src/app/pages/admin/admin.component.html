@@ -8,6 +8,12 @@
     </div>
   </a>
 
+  <button class="btn button-transparent" (click)="analysis_service()">
+    <div>
+      <a>Ver análisis exploratorio</a>
+    </div>
+  </button>
+
   <button class="btn btn-outline" (click)="logout()">
     <a>Cerrar sesión </a>
     <img src="../../../assets/img/logout.png" />
@@ -15,3 +21,4 @@
 </nav>
 
 <router-outlet></router-outlet>
+<ngx-spinner></ngx-spinner>

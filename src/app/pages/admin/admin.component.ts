@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AnalysisService } from 'src/app/services/analysis.service';
 import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-admin',
@@ -7,23 +9,20 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AdminComponent implements OnInit {
   user = {};
-  public isMenuCollapsed = true;
 
-  constructor(private authService: AuthService) {
-    const lolazo: any = this.authService.decodeToken(
+  constructor(private authService: AuthService, private router: Router) {
+    const user_name: any = this.authService.decodeToken(
       localStorage.getItem('accessToken')
     );
-    this.user = lolazo.name;
+    this.user = user_name.name;
   }
 
   logout() {
     this.authService.logout();
   }
-  // assignName() {
-  //   const token = this.authService.decodeToken(
-  //     localStorage.getItem('accessToken')
-  //   );
-  //   console.log(token);
-  // }
+
+  analysis_service() {
+    this.router.navigate(['/analysis']);
+  }
   ngOnInit(): void {}
 }

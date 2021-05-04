@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
   constructor() {}
+  event_analysis: any;
+
+  getAnalysis(analysis: any) {
+    this.event_analysis = analysis;
+  }
 
   ngOnInit(): void {}
 }

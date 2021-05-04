@@ -26,11 +26,8 @@ export class TableComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(toDelete);
-
     Object.keys(toDelete).forEach((keys) => {
       delete this.client[keys];
     });
-    console.log(this.client);
   }
 }
